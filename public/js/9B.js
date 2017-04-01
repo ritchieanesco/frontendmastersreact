@@ -1,6 +1,7 @@
-/* Routing Urls */
+/* Adding a link to the page */
 
 import React from 'react'
+import { Link } from 'react-router'
 
 const Landing = React.createClass({
   render () {
@@ -8,7 +9,7 @@ const Landing = React.createClass({
       <div className='landing'>
         <h1>My Landing</h1>
         <input type='text' placeholder='Search' />
-        <a>or Browse all</a>
+        <Link to='/search'>or Browse all</Link>
       </div>
     )
   }
