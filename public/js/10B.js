@@ -1,4 +1,4 @@
-/* Adding a link to the page */
+/* Abstract reusable component and loop through data */
 
 import React from 'react'
 import { Link } from 'react-router'

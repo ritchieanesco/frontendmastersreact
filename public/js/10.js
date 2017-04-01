@@ -1,4 +1,4 @@
-/* Loading Data */
+/* Abstract reusable component and loop through data */
 
 import React from 'react'
 import { render } from 'react-dom'

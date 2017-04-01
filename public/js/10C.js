@@ -1,7 +1,8 @@
-/* Loading Data */
+/* Abstract reusable component and loop through data */
 
 import React from 'react'
 import preload from '../../public/data.json'
+import ShowCard from './10D'
 
 const Search = React.createClass({
   render () {
@@ -10,7 +11,7 @@ const Search = React.createClass({
         { /* <pre><code>{JSON.stringify(preload, null, 4)}</code></pre> */ }
         {preload.shows.map((show) => {
           return (
-            <h3>{show.title}</h3>
+            <ShowCard key={show.imdbID} show={show} />
           )
         })}
       </div>
