@@ -2,13 +2,14 @@ const path = require('path')
 
 module.exports = {
   context: __dirname,
-  entry: './public/js/8.js',
+  entry: './public/js/9.js',
   output: {
     path: path.join(__dirname, '/public/js'),
     filename: 'bundle.js'
   },
   devServer: {
-    publicPath: '/public/'
+    publicPath: '/public/',
+    historyApiFallback: true
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json']
