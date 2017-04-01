@@ -11,20 +11,16 @@ webpack public/js/4A public/js/4
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import myTitle from './5B' //need to set root directory
-
-var div = React.DOM.div
-
-var myTitleFactory = React.createFactory(myTitle)
+import MyTitle from './5B' //need to set root directory
 
 var myComponent = React.createClass({
   render: function () {
     return (
-			div(null,
-					myTitleFactory({title: 'title attribute here', color: 'peru'}),
-					myTitleFactory({title: 'another title attribute', color: 'mediumaquamarine'}),
-					myTitleFactory({title: 'final title attribute', color: 'goldenrod'})
-			)
+		<div>
+			<MyTitle title= 'title attribute here' color= 'peru' />
+			<MyTitle title= 'another title attribute' color= 'mediumaquamarine' />
+			<MyTitle title= 'final title attribute' color= 'goldenrod' />
+		</div>
     )
   }
 })

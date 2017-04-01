@@ -7,7 +7,7 @@ import React from 'react'
 const div = React.DOM.div
 const h1 = React.DOM.h1
 
-var myTitle = React.createClass({
+var MyTitle = React.createClass({
   render: function () {
     var style = {color: this.props.color}
     return (
@@ -20,4 +20,4 @@ var myTitle = React.createClass({
   }
 })
 
-export default myTitle
+export default MyTitle
