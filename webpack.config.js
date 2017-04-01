@@ -2,14 +2,13 @@ const path = require('path')
 
 module.exports = {
 	context: __dirname,
-	entry: './public/js/4A.js',
-	devtool: 'eval',
+	entry: './public/js/5A.jsx',
 	output: {
 		path: path.join(__dirname, '/public/js'),
-		filename: '4.js'
+		filename: '5.js'
 	},
 	resolve: {
-		extensions: ['.js', '.json']
+		extensions: ['.js', '.jsx', '.json']
 	},
 	stats: {
 		colors: true,
@@ -17,8 +16,8 @@ module.exports = {
 		chunks: true
 	},
 	module: {
-		rules: [{
-			test: /\.js$/,
+		loaders: [{
+			test: /\.jsx?$/,
 			loader: 'babel-loader'
 		}]
 	}
