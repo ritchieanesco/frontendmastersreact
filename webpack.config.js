@@ -2,7 +2,7 @@ const path = require('path')
 
 module.exports = {
   context: __dirname,
-  entry: './public/js/9.js',
+  entry: './public/js/10.js',
   output: {
     path: path.join(__dirname, '/public/js'),
     filename: 'bundle.js'
@@ -25,6 +25,9 @@ module.exports = {
       test: /\.js?$/,
       loader: 'eslint-loader',
       exclude: '/node_modules/'
+    }, {
+      test: /\.json?$/,
+      loader: 'json-loader'
     }, {
       exclude: '/node_modules/',
       test: /\.js?$/,
