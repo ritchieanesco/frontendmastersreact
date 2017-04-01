@@ -1,6 +1,7 @@
 /* global React ReactDOM */
 
-/*JSX - html in javascript*/
+/* Using JSX (html markup in JS) */
+/* Custom component names need to be uppercase */
 
 import React from 'react'
 

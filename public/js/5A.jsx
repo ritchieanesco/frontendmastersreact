@@ -1,19 +1,13 @@
 /* global React ReactDOM */
 
-/*Using webpack to compile all imports - cmd line is `webpack public/js/4A public/js/4` (webpack inputFile outputFile) */
-/*
-Production cmd
-NODE_ENV=production webpack -p public/js/4A.js public/js/4.js
-
-Develop cmd
-webpack public/js/4A public/js/4
-*/
+/* Using JSX (html markup in JS) */
+/* Custom component names need to be uppercase */
 
 import React from 'react'
 import ReactDOM from 'react-dom'
 import MyTitle from './5B' //need to set root directory
 
-var myComponent = React.createClass({
+var MyComponent = React.createClass({
   render: function () {
     return (
 		<div>
@@ -25,4 +19,4 @@ var myComponent = React.createClass({
   }
 })
 
-ReactDOM.render(React.createElement(myComponent), document.getElementById('app'))
+ReactDOM.render(React.createElement(MyComponent), document.getElementById('app'))
