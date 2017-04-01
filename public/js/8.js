@@ -3,7 +3,8 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { HashRouter, Match } from 'react-router'
-import Landing from './7B'
+import Landing from './8B'
+import Search from './8C'
 import '../normalize.css'
 import '../style.css'
 
@@ -17,6 +18,7 @@ const App = React.createClass({
         <div className='app'>
           {/* <nav></nav> */}
           <Match exactly pattern='/' component={Landing} />
+          <Match pattern='/search' component={Search} />
           {/* <footer></footer> */}
         </div>
       </HashRouter>
