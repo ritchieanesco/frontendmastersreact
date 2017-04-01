@@ -11,11 +11,13 @@ const Search = React.createClass({
         { /* <pre><code>{JSON.stringify(preload, null, 4)}</code></pre> */ }
         {preload.shows.map((show) => {
           return (
-            <ShowCard key={show.imdbID} show={show} />
+            <ShowCard key={show.imdbID} {...show} />
           )
         })}
       </div>
     )
   }
 })
+/* <ShowCard key={show.imdbID} show={show} /> {...show} spread passes in the specified object */
+
 export default Search

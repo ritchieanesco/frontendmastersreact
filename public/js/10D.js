@@ -2,20 +2,18 @@
 
 import React from 'react'
 // type annotataions for data
-const {shape, string} = React.PropTypes
+const {string} = React.PropTypes
 
 const ShowCard = React.createClass({
   propTypes: {
-    show: shape({
-      poster: string,
-      title: string,
-      year: string,
-      description: string
-    })
+    poster: string,
+    title: string,
+    year: string,
+    description: string
   },
   render () {
     // destructuring - e6 feature
-    const { poster, title, year, description } = this.props.show
+    const { poster, title, year, description } = this.props
     return (
       <div className='show-card'>
         <img src={`/public/img/posters/${poster}`} />
