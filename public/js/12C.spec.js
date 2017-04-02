@@ -3,8 +3,10 @@ import React from 'react'
 import Search from './12C'
 // need this module for Jest
 // import renderer from 'react-test-renderer'
+import ShowCard from './12D'
 import { shallow } from 'enzyme'
 import { shallowToJson } from 'enzyme-to-json'
+import preload from '../../public/data.json'
 
 // Jest is the test runner being used
 // Jest is similar to Jasmine
@@ -23,4 +25,9 @@ test('Search snapshot test', () => {
   const component = shallow(<Search />)
   const tree = shallowToJson(component)
   expect(tree).toMatchSnapshot()
+})
+
+test('Search should render a ShowCard for each show', () => {
+  const component = shallow(<Search />)
+  expect(preload.shows.length).toEqual(component.find(ShowCard).length)
 })
