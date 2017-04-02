@@ -1,7 +1,7 @@
-/* Setting application state */
+/* Filtering */
 import React from 'react'
 import preload from '../../public/data.json'
-import ShowCard from './10D'
+import ShowCard from './12D'
 
 // render () function call is called enhanced object literal e6 syntax
 // es6 is not about writing function
@@ -9,7 +9,7 @@ import ShowCard from './10D'
 const Search = React.createClass({
   getInitialState () {
     return {
-      searchTerm: 'this is the default string'
+      searchTerm: ''
     }
   },
   handleSearchTermChange (event) {
@@ -28,11 +28,16 @@ const Search = React.createClass({
         </header>
         { /* <pre><code>{JSON.stringify(preload, null, 4)}</code></pre> */ }
         <div>
-          {preload.shows.map((show) => {
-            return (
-              <ShowCard key={show.imdbID} {...show} />
-            )
-          })}
+          {preload.shows
+            .filter((show) => {
+              return `${show.title} ${show.description}`.toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) >= 0
+            })
+            .map((show) => {
+              return (
+                <ShowCard key={show.imdbID} {...show} />
+              )
+            })
+          }
         </div>
       </div>
     )
