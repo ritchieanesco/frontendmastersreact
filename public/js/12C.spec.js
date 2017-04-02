@@ -31,3 +31,12 @@ test('Search should render a ShowCard for each show', () => {
   const component = shallow(<Search />)
   expect(preload.shows.length).toEqual(component.find(ShowCard).length)
 })
+
+test('Search should render correct amount of shows based on search', () => {
+  const searchWord = 'house'
+  const component = shallow(<Search />)
+  // fire event and assign field value
+  component.find('input').simulate('change', { target: {value: searchWord} })
+  const showCount = preload.shows.filter((show) => `${show.title} ${show.description}`.toUpperCase().indexOf(searchWord.toUpperCase()) >= 0).length
+  expect(component.find(ShowCard).length).toEqual(showCount)
+})
