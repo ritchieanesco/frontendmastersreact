@@ -10,6 +10,8 @@ import preload from '../../public/data.json'
 
 // Jest is the test runner being used
 // Jest is similar to Jasmine
+// Jest provides code coverage tool by running NPM run test -- --coverage
+
 
 // commandline run run npm run test or npm test or npm t
 
