@@ -2,6 +2,7 @@
 
 import React from 'react'
 import ShowCard from './14D'
+import Header from './14F'
 const { arrayOf, shape, string } = React.PropTypes
 
 // render () function call is called enhanced object literal e6 syntax
@@ -27,12 +28,14 @@ const Search = React.createClass({
     // usually used for third party scripts
   },
   render () {
+    // showSearch without the value is short for showSearch=true
     return (
       <div className='search'>
-        <header>
-          <h1>Search ({this.state.searchTerm})</h1>
-          <input onChange={this.handleSearchTermChange} type='text' value={this.state.searchTerm} placeholder='Search' />
-        </header>
+        <Header
+          showSearch
+          searchTerm={this.state.searchTerm}
+          handleSearchTermChange={this.handleSearchTermChange}
+        />
         { /* <pre><code>{JSON.stringify(preload, null, 4)}</code></pre> */ }
         <div>
           {this.props.shows
