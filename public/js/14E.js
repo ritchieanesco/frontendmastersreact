@@ -33,6 +33,8 @@ const Details = React.createClass({
       this.setState({omdbData: response.data})
     })
     .catch((error) => console.error('axios error', error))
+    // if promise callback is standard function call... will have to bind to this or call self
+    // axios.get(...).then(function () { this.setState({omdbData: response.data}) }.bind(this) )
   },
 
   render () {
