@@ -1,1 +1,4 @@
 node_modules
+coverage
+public/js/__snapshots__
+bundle.js
