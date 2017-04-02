@@ -28,7 +28,7 @@ const Search = React.createClass({
     // usually used for third party scripts
   },
   render () {
-    // showSearch without the value is short for showSearch=true
+    // showSearch without the value is short for showSearch={true}
     return (
       <div className='search'>
         <Header
