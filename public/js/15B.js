@@ -5,9 +5,12 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { setSearchTerm } from './actionCreators'
 
-const { string, func } = React.PropTypes
+const { string, func, object } = React.PropTypes
 
 const Landing = React.createClass({
+  contextTypes: {
+    router: object
+  },
   propTypes: {
     searchTerm: string,
     dispatch: func
@@ -17,12 +20,21 @@ const Landing = React.createClass({
     // pass in the setSearchTerm function from actionCreator file
     this.props.dispatch(setSearchTerm(event.target.value))
   },
+  handleSearchSubmit (event) {
+    event.preventDefault()
+    // go to search results page
+    // context is global... hooks app together.. BE CAREFUL
+    // programmatically navigate with router
+    this.context.router.transitionTo('/search')
+  },
   render () {
     return (
       <div className='landing'>
         <h1>My Landing</h1>
-        <input type='text' onChange={this.handleSearchTermChange} placeholder='Search' value={this.props.searchTerm} />
-        <Link to='/search'>or Browse all</Link>
+        <form onSubmit={this.handleSearchSubmit}>
+          <input type='text' onChange={this.handleSearchTermChange} placeholder='Search' value={this.props.searchTerm} />
+          <Link to='/search'>or Browse all</Link>
+        </form>
       </div>
     )
   }

@@ -1,6 +1,7 @@
 /* Adding REDUX */
 
 import React from 'react'
+import { connect } from 'react-redux'
 import ShowCard from './15D'
 import Header from './15F'
 const { arrayOf, shape, string } = React.PropTypes
@@ -13,34 +14,19 @@ const Search = React.createClass({
     shows: arrayOf(shape({
       title: string,
       description: string
-    }))
-  },
-  getInitialState () {
-    return {
-      searchTerm: ''
-    }
-  },
-  handleSearchTermChange (event) {
-    this.setState({searchTerm: event.target.value})
-    // setState is the gatekeeper to changing state
-    this.forceUpdate()
-    // force everything to re-render - not a good thing
-    // usually used for third party scripts
+    })),
+    searchTerm: string
   },
   render () {
     // showSearch without the value is short for showSearch={true}
     return (
       <div className='search'>
-        <Header
-          showSearch
-          searchTerm={this.state.searchTerm}
-          handleSearchTermChange={this.handleSearchTermChange}
-        />
+        <Header showSearch />
         { /* <pre><code>{JSON.stringify(preload, null, 4)}</code></pre> */ }
         <div>
           {this.props.shows
             .filter((show) => {
-              return `${show.title} ${show.description}`.toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) >= 0
+              return `${show.title} ${show.description}`.toUpperCase().indexOf(this.props.searchTerm.toUpperCase()) >= 0
             })
             .map((show) => {
               return (
@@ -55,4 +41,10 @@ const Search = React.createClass({
 })
 /* <ShowCard key={show.imdbID} show={show} /> {...show} spread passes in the specified object */
 
-export default Search
+const mapStateToProps = (state) => {
+  return {
+    searchTerm: state.searchTerm
+  }
+}
+
+export default connect(mapStateToProps)(Search)
