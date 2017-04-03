@@ -1,4 +1,4 @@
-/* Adding a header component */
+/* Adding REDUX */
 
 import React from 'react'
 import { connect } from 'react-redux'
